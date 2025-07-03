@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 3D Designs Collection
 
-## Getting Started
+A showcase of interactive 3D web elements built with modern web technologies by VonHoltenCodes.
 
-First, run the development server:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)
+![Three.js](https://img.shields.io/badge/Three.js-r169-green.svg)
+![React](https://img.shields.io/badge/React-18.3-blue.svg)
+
+<p align="center">
+  <img src="./screenshots/REV1-animation-optimized.gif" alt="Developer Tools Globe Animation" width="600">
+</p>
+
+<p align="center">
+  <img src="./screenshots/REV1-far.png" alt="Developer Tools Globe - Wide View" width="600">
+</p>
+
+## 🌟 Overview
+
+This repository houses various 3D interactive elements designed for web integration, showcasing the power of WebGL and modern JavaScript frameworks. Each project demonstrates unique 3D concepts while maintaining high performance and visual appeal.
+
+## 🚀 Projects
+
+### 1. [Developer Tools Globe](./developer-tools-globe/)
+An interactive 3D globe featuring 35+ developer tool logos with particle animations and smooth interactions.
+- **Status**: ✅ REV1 Complete
+- **[Live Demo](#)** | **[Documentation](./developer-tools-globe/README.md)**
+
+### 2. Saturn's Rings (Coming Soon)
+A stunning representation of Saturn with animated rings and particle effects.
+- **Status**: 🚧 Planned
+
+### More projects coming soon...
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) with TypeScript
+- **3D Graphics**: [Three.js](https://threejs.org/) + [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Post-processing**: [@react-three/postprocessing](https://github.com/pmndrs/postprocessing)
+
+## 🚀 Quick Start
 
 ```bash
+# Clone the repository
+git clone https://github.com/VonHoltenCodes/three-d-designs.git
+
+# Navigate to a specific project
+cd three-d-designs/developer-tools-globe
+
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📁 Repository Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+three-d-designs/
+├── developer-tools-globe/    # REV1 - Interactive technology globe
+├── saturns-rings/           # (Planned) Saturn with animated rings
+├── docs/                    # Shared documentation
+└── shared/                  # Shared utilities and components
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👤 Author
 
-## Learn More
+**VonHoltenCodes**
+- GitHub: [@VonHoltenCodes](https://github.com/VonHoltenCodes)
 
-To learn more about Next.js, take a look at the following resources:
+## 🙏 Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[Claude by Anthropic](https://claude.ai)** - AI-powered code generation and development assistance
+- **[Three.js Community](https://threejs.org/)** - For the amazing 3D graphics library
+- **[React Three Fiber](https://docs.pmnd.rs/react-three-fiber)** - For React integration
+- **[Simple Icons](https://simpleicons.org/)** - Technology logo resources
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📄 License
 
-## Deploy on Vercel
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🤝 Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/VonHoltenCodes/three-d-designs/issues).
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📊 Project Status
+
+This repository is actively maintained and new 3D elements are regularly added. Each project follows semantic versioning with REV tags for major updates.
+
+---
+
+<p align="center">
+  Made with ❤️ by VonHoltenCodes | Powered by 🤖 Claude
+</p>
