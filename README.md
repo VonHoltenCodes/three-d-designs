@@ -14,12 +14,16 @@ A showcase of interactive 3D web elements built with modern web technologies by 
 <table align="center">
   <tr>
     <td align="center">
-      <img src="./screenshots/REV1-far.png" alt="Developer Tools Globe" width="400">
+      <img src="./screenshots/REV1-far.png" alt="Developer Tools Globe" width="300">
       <br><em>Developer Tools Globe</em>
     </td>
     <td align="center">
-      <img src="./screenshots/dna-double-helix-far.png" alt="DNA Double Helix" width="400">
+      <img src="./screenshots/dna-double-helix-far.png" alt="DNA Double Helix" width="300">
       <br><em>DNA Double Helix</em>
+    </td>
+    <td align="center">
+      <img src="./screenshots/saturn-rings-REV1.png" alt="Saturn's Rings" width="300">
+      <br><em>Saturn's Rings</em>
     </td>
   </tr>
 </table>
@@ -41,9 +45,11 @@ A scientifically accurate 3D visualization of the DNA double helix structure wit
 - **[Live Demo](#)** | **[Documentation](./dna-double-helix/DOUBLE_HELIX_README.md)**
 - **Features**: Watson-Crick base pairing, glowing phosphate backbone, floating H₂O molecules, educational mode
 
-### 3. Saturn's Rings (Coming Soon)
-A stunning representation of Saturn with animated rings and particle effects.
-- **Status**: 🚧 Planned
+### 3. [Saturn's Rings](./saturns-rings/)
+A stunning representation of Saturn with developer tool particles orbiting in its majestic rings, complete with realistic moons.
+- **Status**: ✅ REV1 Complete
+- **[Live Demo](#)** | **[Documentation](./saturns-rings/README.md)**
+- **Features**: 350,000 particles, 9 orbiting moons, developer tools as ring particles, procedural textures
 
 ### More projects coming soon...
 
