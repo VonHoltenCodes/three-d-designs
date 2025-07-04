@@ -8,12 +8,21 @@ A showcase of interactive 3D web elements built with modern web technologies by 
 ![React](https://img.shields.io/badge/React-18.3-blue.svg)
 
 <p align="center">
-  <img src="./screenshots/REV1-animation-optimized.gif" alt="Developer Tools Globe Animation" width="600">
+  <img src="./screenshots/dna-double-helix-github.gif" alt="DNA Double Helix Animation" width="600">
 </p>
 
-<p align="center">
-  <img src="./screenshots/REV1-far.png" alt="Developer Tools Globe - Wide View" width="600">
-</p>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="./screenshots/REV1-far.png" alt="Developer Tools Globe" width="400">
+      <br><em>Developer Tools Globe</em>
+    </td>
+    <td align="center">
+      <img src="./screenshots/dna-double-helix-far.png" alt="DNA Double Helix" width="400">
+      <br><em>DNA Double Helix</em>
+    </td>
+  </tr>
+</table>
 
 ## 🌟 Overview
 
@@ -26,7 +35,13 @@ An interactive 3D globe featuring 35+ developer tool logos with particle animati
 - **Status**: ✅ REV1 Complete
 - **[Live Demo](#)** | **[Documentation](./developer-tools-globe/README.md)**
 
-### 2. Saturn's Rings (Coming Soon)
+### 2. [DNA Double Helix](./dna-double-helix/)
+A scientifically accurate 3D visualization of the DNA double helix structure with interactive controls and educational features.
+- **Status**: ✅ REV1 Complete
+- **[Live Demo](#)** | **[Documentation](./dna-double-helix/DOUBLE_HELIX_README.md)**
+- **Features**: Watson-Crick base pairing, glowing phosphate backbone, floating H₂O molecules, educational mode
+
+### 3. Saturn's Rings (Coming Soon)
 A stunning representation of Saturn with animated rings and particle effects.
 - **Status**: 🚧 Planned
 
@@ -61,7 +76,9 @@ npm run dev
 ```
 three-d-designs/
 ├── developer-tools-globe/    # REV1 - Interactive technology globe
+├── dna-double-helix/        # REV1 - DNA structure visualization
 ├── saturns-rings/           # (Planned) Saturn with animated rings
+├── screenshots/             # Project screenshots and animations
 ├── docs/                    # Shared documentation
 └── shared/                  # Shared utilities and components
 ```
