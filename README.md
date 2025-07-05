@@ -26,6 +26,18 @@ A showcase of interactive 3D web elements built with modern web technologies by 
       <br><em>Saturn's Rings</em>
     </td>
   </tr>
+  <tr>
+    <td align="center">
+      <img src="./luxury-aviation-hero/luxury-aviation-hero-REV1.png" alt="Luxury Aviation Hero" width="300">
+      <br><em>Luxury Aviation Hero</em>
+    </td>
+    <td align="center">
+      <!-- Placeholder for future project -->
+    </td>
+    <td align="center">
+      <!-- Placeholder for future project -->
+    </td>
+  </tr>
 </table>
 
 ## 🌟 Overview
@@ -50,6 +62,12 @@ A stunning representation of Saturn with developer tool particles orbiting in it
 - **Status**: ✅ REV1 Complete
 - **[Live Demo](#)** | **[Documentation](./saturns-rings/README.md)**
 - **Features**: 350,000 particles, 9 orbiting moons, developer tools as ring particles, procedural textures
+
+### 4. [Luxury Aviation Hero](./luxury-aviation-hero/)
+A photorealistic 3D hero section featuring an interactive Boeing 737-800 aircraft with HDRI sunset lighting and mouse controls.
+- **Status**: ✅ REV1 Complete
+- **[Live Demo](#)** | **[Documentation](./luxury-aviation-hero/README.md)**
+- **Features**: Boeing 737-800 model, interactive mouse controls, HDRI environment, automatic scaling
 
 ### More projects coming soon...
 
@@ -83,7 +101,8 @@ npm run dev
 three-d-designs/
 ├── developer-tools-globe/    # REV1 - Interactive technology globe
 ├── dna-double-helix/        # REV1 - DNA structure visualization
-├── saturns-rings/           # (Planned) Saturn with animated rings
+├── saturns-rings/           # REV1 - Saturn with animated rings
+├── luxury-aviation-hero/    # REV1 - Boeing 737 hero section
 ├── screenshots/             # Project screenshots and animations
 ├── docs/                    # Shared documentation
 └── shared/                  # Shared utilities and components
