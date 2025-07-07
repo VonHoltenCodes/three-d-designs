@@ -1,42 +1,53 @@
-# Construction Hero - Interactive 3D Construction Scene
+# Construction Hero - Interactive 3D Hero Section
 
-An ultra-realistic 3D hero section for the construction industry featuring an interactive tower crane with physics-based wrecking ball and destructible brick wall system.
+![Construction Hero REV2](./public/construction-hero-REV2.png)
 
-![Construction Hero Preview](../screenshots/construction-hero-action.png)
+## Overview
+
+Construction Hero is an ultra-realistic, interactive 3D hero section designed for the construction industry. It features a physics-based tower crane with a swinging wrecking ball that can demolish a brick wall, all rendered with cutting-edge web 3D technology.
+
+## Demo
+
+![Construction Hero Demo](./public/construction-hero-demo-REV2.gif)
 
 ## Features
 
-- **Interactive Tower Crane**: 
-  - Smooth mouse-controlled rotation
-  - Realistic metallic materials and construction details
-  - Support cables and counterweight visualization
-- **Physics-Based Wrecking Ball**: 
-  - Realistic pendulum motion with proper swinging physics
-  - Dynamic cable that stretches and adjusts
-  - Spherical joint physics for natural movement
-  - Click to release mechanism
-- **Destructible Wall System**: 
-  - 120 individual physics-enabled bricks
-  - Multi-layer wall construction (2 layers thick)
-  - Realistic brick destruction on impact
-  - Automatic debris cleanup after 5 seconds
-- **Optimized Performance**: 
-  - Efficient brick count for smooth physics
-  - Dark themed environment for better visibility
-  - Responsive controls and camera system
+### Interactive Controls
+- **Mouse Movement**: Control crane rotation by moving your mouse horizontally
+- **Camera Control**: Click and drag to rotate the camera view
+- **Spacebar**: Press SPACE to release the wrecking ball
+- **Zoom**: Use scroll wheel to zoom in/out
 
-## Technologies
+### Ultra-Realistic Visuals (REV2)
+- **HDRI Environment Mapping**: Industrial sunset environment with realistic reflections
+- **PBR Materials**: Physically-based rendering for all objects
+- **Post-Processing Effects**: Bloom, depth of field, vignette, and chromatic aberration
+- **Dynamic Dust Particles**: 500 particles triggered on impact
+- **Advanced Lighting**: Three-point lighting setup with 4K shadow maps
+- **Atmospheric Effects**: Fog for depth perception
 
-- **Next.js 15** with App Router
-- **Three.js** + **React Three Fiber**
-- **Rapier Physics Engine** for realistic physics
+### Physics Simulation
+- **Realistic Pendulum Motion**: Wrecking ball swings naturally with crane movement
+- **Destructible Wall**: 120 individual physics-enabled bricks
+- **Impact Detection**: Automatic dust effect generation on collision
+- **Debris Cleanup**: Automatic removal after 5 seconds
+
+## Tech Stack
+
+- **Next.js 15** with App Router and Turbopack
+- **Three.js** (v0.178.0) for 3D graphics
+- **React Three Fiber** (v9.2.0) for declarative 3D
+- **Rapier Physics Engine** (v0.17.3) for realistic physics
+- **@react-three/postprocessing** for visual effects
 - **TypeScript** for type safety
-- **Tailwind CSS** for styling
-- **@react-three/drei** for 3D utilities
+- **Tailwind CSS v4** for styling
 
-## Getting Started
+## Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/construction-hero.git
+
 # Install dependencies
 npm install
 
@@ -44,60 +55,61 @@ npm install
 npm run dev
 ```
 
-Visit http://localhost:3000 to see the construction hero section.
+Open [http://localhost:3000](http://localhost:3000) to view the project.
+
+## Performance
+
+The project includes an adaptive quality system that automatically adjusts rendering settings based on device performance:
+- **High Quality**: Full effects with 2x pixel ratio
+- **Medium Quality**: Reduced effects with 1.5x pixel ratio
+- **Low Quality**: Minimal effects with 1x pixel ratio
 
 ## Project Structure
 
 ```
 construction-hero/
 ├── app/
-│   └── page.tsx          # Main hero component
+│   ├── page.tsx          # Main scene with HDRI and post-processing
+│   ├── layout.tsx        # Root layout
+│   └── globals.css       # Global styles
 ├── components/
-│   ├── Crane.tsx         # Crane model and controls
+│   ├── Crane.tsx         # Interactive crane with PBR materials
 │   ├── WreckingBall.tsx  # Physics-based wrecking ball
-│   └── Wall.tsx          # Destructible wall component
+│   ├── DestructibleWall.tsx # Breakable brick wall
+│   ├── DustParticles.tsx # Particle system for impacts
+│   └── PerformanceMonitor.tsx # FPS monitoring and quality adjustment
 ├── public/
-│   ├── models/
-│   │   ├── crane.glb     # Tower crane model
-│   │   └── debris.glb    # Debris pieces
-│   └── hdri/
-│       └── construction_site_8k.exr  # Environment map
+│   ├── hdri/            # HDRI environment maps
+│   └── models/          # 3D models (future enhancement)
+└── README_REV2.md       # Detailed REV2 documentation
 ```
 
-## Assets Needed
+## REV2 Enhancements
 
-1. **Tower Crane Model** - Photorealistic crane (GLB format)
-2. **Wrecking Ball** - Metal sphere with chain
-3. **Brick Wall** - Modular bricks for destruction
-4. **HDRI Environment** - Construction site ambiance
+The second revision brings ultra-realistic visuals comparable to luxury aviation hero sections:
 
-## Usage
+1. **Environmental Lighting**: 4K HDRI from Poly Haven
+2. **Material Upgrades**: All objects use PBR materials with proper metalness and roughness
+3. **Post-Processing Pipeline**: Cinema-quality effects
+4. **Particle Effects**: Dynamic dust system
+5. **Performance Optimization**: Smart quality adjustment
 
-Move your mouse left and right to control the crane rotation. The wrecking ball will follow the crane's movement with realistic swinging physics. Click anywhere to release the wrecking ball - watch as it swings and demolishes the brick wall!
+See [README_REV2.md](./README_REV2.md) for detailed technical information.
 
-## Development Status
+## Future Enhancements
 
-- [x] Project setup with Next.js and Three.js
-- [x] Physics engine integration (Rapier)
-- [x] Crane model with interactive controls
-- [x] Wrecking ball physics with swinging motion
-- [x] Destructible wall system with individual bricks
-- [x] Mouse-based crane controls
-- [x] UI overlay with instructions
-- [x] Performance optimization for smooth physics
-
-## Performance Notes
-
-This project uses intensive physics simulation. For best performance:
-- Use a modern browser with WebGL support
-- Chrome or Edge recommended for optimal performance
-- May require dedicated GPU for smooth operation
-- Reduced brick count optimized for broader compatibility
+- High-quality 3D crane models from Sketchfab
+- Additional HDRI environments
+- PBR texture maps (normal, roughness, metalness)
+- Screen space reflections
+- Volumetric lighting effects
 
 ## License
 
-MIT License
+MIT License - feel free to use this in your projects!
 
----
+## Credits
 
-Built with ❤️ for the construction industry
+- HDRI Environment: [Poly Haven](https://polyhaven.com)
+- Built with [Three.js](https://threejs.org) and [React Three Fiber](https://docs.pmnd.rs/react-three-fiber)
+- Physics by [Rapier](https://rapier.rs)

@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useMemo, useEffect } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import { Box, Cylinder } from '@react-three/drei'
 import * as THREE from 'three'
@@ -14,21 +14,51 @@ interface CraneProps {
 export default function Crane({ onRelease, isReleased, onRotationChange }: CraneProps) {
   const craneRef = useRef<THREE.Group>(null)
   const jibRef = useRef<THREE.Group>(null)
-  const { mouse } = useThree()
-  const [targetRotation, setTargetRotation] = useState(0)
+  const mouseX = useRef(0)
+  
+  // Track mouse movement on the window with passive listener
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      // Normalize mouse position to -1 to 1
+      mouseX.current = (event.clientX / window.innerWidth) * 2 - 1
+    }
+    
+    // Use passive listener to not interfere with other mouse handlers
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+  
+  // Enhanced PBR materials
+  const craneMaterial = useMemo(() => new THREE.MeshStandardMaterial({
+    color: new THREE.Color(0.9, 0.7, 0.1),
+    metalness: 0.85,
+    roughness: 0.4,
+    envMapIntensity: 1.5,
+  }), [])
+  
+  const cableMaterial = useMemo(() => new THREE.MeshStandardMaterial({
+    color: new THREE.Color(0.2, 0.2, 0.2),
+    metalness: 0.9,
+    roughness: 0.3,
+  }), [])
+  
+  const counterweightMaterial = useMemo(() => new THREE.MeshStandardMaterial({
+    color: new THREE.Color(0.15, 0.15, 0.15),
+    metalness: 0.7,
+    roughness: 0.6,
+  }), [])
 
-  // Handle mouse movement for crane rotation
+  // Animate crane rotation based on mouse position
   useFrame((state, delta) => {
     if (craneRef.current && !isReleased) {
-      // Smooth rotation based on mouse X position
-      const mouseRotation = mouse.x * Math.PI * 0.3
-      setTargetRotation(mouseRotation)
+      // Calculate rotation based on mouse X position
+      const targetRotation = mouseX.current * Math.PI * 0.3
       
       // Lerp to target rotation for smooth movement
       craneRef.current.rotation.y = THREE.MathUtils.lerp(
         craneRef.current.rotation.y,
         targetRotation,
-        delta * 2
+        delta * 3
       )
       
       // Report the actual rotation to parent
@@ -36,46 +66,28 @@ export default function Crane({ onRelease, isReleased, onRotationChange }: Crane
     }
   })
 
-  const handleClick = () => {
-    if (!isReleased) {
-      onRelease()
-    }
-  }
-
   return (
-    <group ref={craneRef} position={[0, 0, 0]} onClick={handleClick}>
+    <group ref={craneRef} position={[0, 0, 0]}>
       {/* Base */}
-      <Box args={[4, 1, 4]} position={[0, 0.5, 0]} castShadow>
-        <meshStandardMaterial color="#FFD700" metalness={0.7} roughness={0.3} />
-      </Box>
+      <Box args={[4, 1, 4]} position={[0, 0.5, 0]} castShadow receiveShadow material={craneMaterial} />
       
       {/* Mast (vertical tower) */}
-      <Box args={[2, 20, 2]} position={[0, 10, 0]} castShadow>
-        <meshStandardMaterial color="#FFD700" metalness={0.7} roughness={0.3} />
-      </Box>
+      <Box args={[2, 20, 2]} position={[0, 10, 0]} castShadow receiveShadow material={craneMaterial} />
       
       {/* Counter-jib (back arm) */}
       <group position={[0, 19, 0]}>
-        <Box args={[8, 1, 1]} position={[-4, 0, 0]} castShadow>
-          <meshStandardMaterial color="#FFD700" metalness={0.7} roughness={0.3} />
-        </Box>
+        <Box args={[8, 1, 1]} position={[-4, 0, 0]} castShadow receiveShadow material={craneMaterial} />
         {/* Counterweight */}
-        <Box args={[3, 2, 2]} position={[-7, -0.5, 0]} castShadow>
-          <meshStandardMaterial color="#333333" metalness={0.9} roughness={0.1} />
-        </Box>
+        <Box args={[3, 2, 2]} position={[-7, -0.5, 0]} castShadow receiveShadow material={counterweightMaterial} />
       </group>
       
       {/* Jib (front arm with hook) */}
       <group ref={jibRef} position={[0, 19, 0]}>
-        <Box args={[16, 1, 1]} position={[8, 0, 0]} castShadow>
-          <meshStandardMaterial color="#FFD700" metalness={0.7} roughness={0.3} />
-        </Box>
+        <Box args={[16, 1, 1]} position={[8, 0, 0]} castShadow receiveShadow material={craneMaterial} />
         
         {/* Hook position marker */}
         <group position={[16, -1, 0]}>
-          <Cylinder args={[0.2, 0.2, 1]} rotation={[0, 0, Math.PI / 2]} castShadow>
-            <meshStandardMaterial color="#666666" metalness={0.9} roughness={0.1} />
-          </Cylinder>
+          <Cylinder args={[0.2, 0.2, 1]} rotation={[0, 0, Math.PI / 2]} castShadow material={cableMaterial} />
         </group>
       </group>
       
@@ -84,16 +96,14 @@ export default function Crane({ onRelease, isReleased, onRotationChange }: Crane
         args={[0.05, 0.05, 22]} 
         position={[8, 9, 0]} 
         rotation={[0, 0, -Math.PI / 4]}
-      >
-        <meshStandardMaterial color="#444444" />
-      </Cylinder>
+        material={cableMaterial}
+      />
       <Cylinder 
         args={[0.05, 0.05, 10]} 
         position={[-4, 14, 0]} 
         rotation={[0, 0, Math.PI / 4]}
-      >
-        <meshStandardMaterial color="#444444" />
-      </Cylinder>
+        material={cableMaterial}
+      />
     </group>
   )
 }

@@ -77,10 +77,28 @@ interface BrickProps extends Brick {
 function Brick({ position, rotation, isDestroyed, onDestroy }: BrickProps) {
   const rigidBodyRef = useRef<RapierRigidBody>(null)
   
-  // Random color variation for bricks
-  const color = useMemo(() => {
-    const colors = ['#8B4513', '#A0522D', '#BC8F8F', '#CD853F']
-    return colors[Math.floor(Math.random() * colors.length)]
+  // Enhanced brick material with realistic variations
+  const brickMaterial = useMemo(() => {
+    const baseColors = [
+      new THREE.Color(0.54, 0.27, 0.07), // Saddle brown
+      new THREE.Color(0.63, 0.32, 0.18), // Sienna  
+      new THREE.Color(0.74, 0.56, 0.56), // Rosy brown
+      new THREE.Color(0.80, 0.52, 0.25), // Peru
+    ]
+    const color = baseColors[Math.floor(Math.random() * baseColors.length)]
+    
+    // Add slight random variation to each brick
+    const hsl = { h: 0, s: 0, l: 0 }
+    color.getHSL(hsl)
+    hsl.l += (Math.random() - 0.5) * 0.1
+    color.setHSL(hsl.h, hsl.s, hsl.l)
+    
+    return new THREE.MeshStandardMaterial({
+      color,
+      roughness: 0.85 + Math.random() * 0.1,
+      metalness: 0.05,
+      envMapIntensity: 0.5,
+    })
   }, [])
 
   if (isDestroyed) return null
@@ -113,13 +131,7 @@ function Brick({ position, rotation, isDestroyed, onDestroy }: BrickProps) {
         }
       }}
     >
-      <Box args={[2, 1, 1]} castShadow receiveShadow>
-        <meshStandardMaterial 
-          color={color}
-          roughness={0.9}
-          metalness={0.1}
-        />
-      </Box>
+      <Box args={[2, 1, 1]} castShadow receiveShadow material={brickMaterial} />
     </RigidBody>
   )
 }

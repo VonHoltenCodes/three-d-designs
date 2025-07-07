@@ -32,7 +32,7 @@ A showcase of interactive 3D web elements built with modern web technologies by 
       <br><em>Luxury Aviation Hero</em>
     </td>
     <td align="center">
-      <img src="./screenshots/construction-hero-action.png" alt="Construction Hero" width="300">
+      <img src="./construction-hero/public/construction-hero-REV2.png" alt="Construction Hero" width="300">
       <br><em>Construction Hero</em>
     </td>
     <td align="center">
@@ -72,9 +72,9 @@ A photorealistic 3D hero section featuring an interactive Boeing 737-800 aircraf
 
 ### 5. [Construction Hero](./construction-hero/)
 An ultra-realistic 3D construction scene featuring an interactive tower crane with physics-based wrecking ball and destructible brick wall.
-- **Status**: ✅ Complete
+- **Status**: ✅ REV2 Complete
 - **[Live Demo](#)** | **[Documentation](./construction-hero/README.md)**
-- **Features**: Interactive crane controls, swinging wrecking ball physics, destructible wall system, Rapier physics engine
+- **Features**: HDRI environment, PBR materials, dust particles, physics-based destruction, interactive crane controls
 
 ### More projects coming soon...
 
@@ -110,7 +110,7 @@ three-d-designs/
 ├── dna-double-helix/        # REV1 - DNA structure visualization
 ├── saturns-rings/           # REV1 - Saturn with animated rings
 ├── luxury-aviation-hero/    # REV1 - Boeing 737 hero section
-├── construction-hero/       # Interactive construction scene with physics
+├── construction-hero/       # REV2 - Ultra-realistic construction scene
 ├── screenshots/             # Project screenshots and animations
 ├── docs/                    # Shared documentation
 └── shared/                  # Shared utilities and components
